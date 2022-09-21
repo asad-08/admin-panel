@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text-color: rgb(71 85 105);
+    --fill-color:rgb(248 250 252);
+    --fill-color-indicator:rgb(248 250 252)
+  }
+  .theme-dark {
+    --text-color: rgb(248 250 252);
+    --fill-color:rgb(71 85 105);
+    --fill-color-indicator:rgb(71 85 105)
+  }
+  .theme-purple {
+    --text-color: rgb(250 245 255);
+    --fill-color:rgb(147 51 234);
+    --fill-color-indicator:rgb(147 51 234)
+  }
+  .theme-pink {
+    --text-color: rgb(253 242 248);
+    --fill-color:rgb(219 39 119);
+    --fill-color-indicator:rgb(219 39 119)
+  }
+  .theme-yellow {
+    --text-color: rgb(254 252 232);
+    --fill-color:rgb(202 138 4);
+    --fill-color-indicator:rgb(202 138 4)
+  }
+  .theme-green {
+    --text-color: rgb(236 253 245);
+    --fill-color:rgb(5 150 105);
+    --fill-color-indicator:rgb(5 150 105)
+  }
+}
