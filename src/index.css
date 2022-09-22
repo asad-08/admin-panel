@@ -6,33 +6,54 @@
 
 @layer base {
   :root {
-    --text-color: rgb(71 85 105);
-    --fill-color:rgb(248 250 252);
-    --fill-color-indicator:rgb(248 250 252)
+    --text-color: rgb(30 41 59);
+    --text-color-button: rgb(255, 255, 255);
+    --background-color: rgb(248 250 252);
+    --fill-color-button: rgb(59 130 246);
+    --fill-color-hover: rgb(30 64 175);
+    --fill-color-indicator:rgb(59 130 246);
   }
-  .theme-dark {
+  /* .theme-dark {
     --text-color: rgb(248 250 252);
-    --fill-color:rgb(71 85 105);
-    --fill-color-indicator:rgb(71 85 105)
-  }
+    --text-color-button: rgb(255, 255, 255);
+    --background-color: rgb(30 41 59);
+    --fill-color-button: rgb(59 130 246);
+    --fill-color-hover: rgb(30 64 175);
+    --fill-color-indicator:rgb(59 130 246);
+  } */
   .theme-purple {
-    --text-color: rgb(250 245 255);
-    --fill-color:rgb(147 51 234);
-    --fill-color-indicator:rgb(147 51 234)
+    
+    --text-color: rgb(30 41 59);
+    --text-color-button: rgb(255, 255, 255);
+    --background-color: rgb(248 250 252);
+    --fill-color-button:rgb(168 85 247);
+    --fill-color-hover: rgb(126 34 206);
+    --fill-color-indicator:rgb(168 85 247);
   }
   .theme-pink {
-    --text-color: rgb(253 242 248);
-    --fill-color:rgb(219 39 119);
-    --fill-color-indicator:rgb(219 39 119)
+    
+    --text-color: rgb(30 41 59);
+    --text-color-button: rgb(255, 255, 255);
+    --background-color: rgb(248 250 252);
+    --fill-color-button:rgb(236 72 153);
+    --fill-color-hover: rgb(190 24 93);
+    --fill-color-indicator:rgb(236 72 153);
   }
   .theme-yellow {
-    --text-color: rgb(254 252 232);
-    --fill-color:rgb(202 138 4);
-    --fill-color-indicator:rgb(202 138 4)
+    --text-color: rgb(30 41 59);
+    --text-color-button: rgb(255, 255, 255);
+    --background-color: rgb(248 250 252);
+    --fill-color-button:rgb(234 179 8);
+    --fill-color-hover: rgb(161 98 7);
+    --fill-color-indicator:rgb(234 179 8);
   }
   .theme-green {
-    --text-color: rgb(236 253 245);
-    --fill-color:rgb(5 150 105);
-    --fill-color-indicator:rgb(5 150 105)
+    
+    --text-color: rgb(30 41 59);
+    --text-color-button: rgb(255, 255, 255);
+    --background-color: rgb(248 250 252);
+    --fill-color-button:rgb(16 185 129);
+    --fill-color-hover: rgb(4 120 87);
+    --fill-color-indicator:rgb(16 185 129);
   }
 }

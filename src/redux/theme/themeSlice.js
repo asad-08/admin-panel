@@ -3,7 +3,7 @@ const themeSlice = createSlice({
   name: "theme",
   initialState: {
     mode: "light",
-    theme: "default",
+    theme: "purple",
   },
   reducers: {
     setMode: (state, action) => {

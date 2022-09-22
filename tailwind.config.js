@@ -5,22 +5,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        current: "var(--fill-color)",
+        current: "var(--background-color)",
       },
       textColor: {
         skin: {
           base: "var(--text-color)",
+          btnText: "var(--text-color-button)",
         },
       },
       backgroundColor: {
         skin: {
-          fill: "var(--fill-color)",
+          base: "var(--background-color)",
           indicator: "var(--fill-color-indicator)",
+          btn: "var(--fill-color-button)",
+          btnHover: "var(--fill-color-hover)",
         },
       },
       gradientColorStops: {
         skin: {
-          hue: "var(--fill-color)",
+          hue: "var(--background-color)",
         },
       },
     },
