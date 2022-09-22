@@ -13,7 +13,7 @@ import {
 
 const Settings = () => {
   const dispatch = useDispatch();
-  const [isOpenDrawer, setIsOpenDrawer] = useState(true);
+  const [isOpenDrawer, setIsOpenDrawer] = useState(false);
   const [clickedColor, setClickedColor] = useState("");
   const [theme, setCurrentTheme] = useState("");
   const [mode, setCurrentMode] = useState("light");
@@ -50,7 +50,7 @@ const Settings = () => {
       </div>
       {isOpenDrawer ? (
         <div
-          className="fixed right-0 z-40 h-screen p-4 overflow-y-auto bg-white w-80 bg-skin-base shadow-lg dark:bg-slate-700 dark:text-slate-100"
+          className="fixed right-0 top-0 bottom-0 z-40 h-screen p-4 overflow-y-auto bg-white w-80 bg-skin-base shadow-lg dark:bg-slate-700 dark:text-slate-100"
           tabIndex="-1"
         >
           <div className="border-b pb-6">

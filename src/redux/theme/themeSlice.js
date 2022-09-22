@@ -4,6 +4,8 @@ const themeSlice = createSlice({
   initialState: {
     mode: "light",
     theme: "purple",
+    screenSize: 0,
+    activeMenu: 1,
   },
   reducers: {
     setMode: (state, action) => {
@@ -12,9 +14,18 @@ const themeSlice = createSlice({
     setTheme: (state, action) => {
       return { ...state, theme: action.payload };
     },
+    setScreenSize: (state, action) => {
+      return { ...state, screenSize: action.payload };
+    },
+    setActiveMenu: (state, action) => {
+      return { ...state, activeMenu: action.payload };
+    },
   },
 });
-export const { setMode, setTheme } = themeSlice.actions;
+export const { setMode, setTheme, setScreenSize, setActiveMenu } =
+  themeSlice.actions;
 export const getMode = (state) => state.theme.mode;
 export const getTheme = (state) => state.theme.theme;
+export const getScreenSize = (state) => state.theme.screenSize;
+export const getActiveMenu = (state) => state.theme.activeMenu;
 export default themeSlice.reducer;

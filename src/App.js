@@ -1,12 +1,45 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import "./App.css";
-import Home from "./pages/home/Home";
-import { getMode, getTheme } from "./redux/theme/themeSlice";
+import {
+  getMode,
+  getTheme,
+  getScreenSize,
+  getActiveMenu,
+  setActiveMenu,
+  setScreenSize,
+} from "./redux/theme/themeSlice";
+
+import { useDispatch, useSelector } from "react-redux";
+import Settings from "./components/settings/Settings";
+import Sidebar from "./components/sidebar/Sidebar";
+import Navbar from "./components/navbar/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Ecommerce from "./pages/ecommerce/Ecommerce";
+import Products from "./pages/products/Products";
 
 function App() {
   const theme = useSelector(getTheme);
   const mode = useSelector(getMode);
+  const dispatch = useDispatch();
+  const screenSize = useSelector(getScreenSize);
+  const activeMenu = useSelector(getActiveMenu);
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(setScreenSize(window.innerWidth));
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  useEffect(() => {
+    if (screenSize <= 767) {
+      dispatch(setActiveMenu(0));
+    } else {
+      dispatch(setActiveMenu(1));
+    }
+  }, [screenSize]);
+
   return (
     <div
       className={
@@ -21,7 +54,25 @@ function App() {
           : ""
       }
     >
-      <Home />
+      <Settings />
+      {activeMenu ? <Sidebar /> : null}
+      <div
+        className={`min-h-screen w-full ${activeMenu ? "md:pl-64" : "flex-2"}`}
+      >
+        <div className="fixed md:static navbar w-full">
+          <Navbar />
+        </div>
+        <div className="wrapper pt-[80px] p-4">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Ecommerce />} exact />
+              <Route path="/products" element={<Products />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </div>
+
+      {/* <Home /> */}
     </div>
   );
 }
