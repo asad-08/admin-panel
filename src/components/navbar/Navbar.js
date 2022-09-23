@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Bell from "@mui/icons-material/NotificationsActiveOutlined";
 import Chat from "@mui/icons-material/MessageOutlined";
 import Cart from "@mui/icons-material/ShoppingBagOutlined";
 import { Avatar } from "@mui/material";
-import {Close, Menu} from "@mui/icons-material";
+import { Close, Menu } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getActiveMenu,
@@ -25,27 +25,37 @@ const Navbar = () => {
   const handleSearchMobile = (e) => {
     e.preventDefault();
     setIsClickedMobileSearch(!isClickedMobileSearch);
-  }
+  };
   return (
     <div
-      className={`header h-[70px]  bg-skin-base flex items-center justify-between px-2 shadow-lg dark:shadow-md dark:shadow-slate-400 fixed ${
+      className={`header z-[999] h-[70px] backdrop-filter backdrop-blur-[90px]  bg-skin-base flex items-center justify-between px-2 shadow-lg dark:shadow-sm dark:shadow-slate-400 fixed ${
         activeMenu && screenSize > 900
           ? " left-64 "
           : activeMenu && screenSize <= 900
           ? "left-0"
           : "left-0"
-      }  right-0 dark:bg-slate-700 dark:text-slate-100`}
+      }  right-0 dark:bg-slate-700 dark:text-slate-100 bg-transparent`}
     >
-      {isClickedMobileSearch ?
-          (<div className={"px-4 flex gap-4 items-center justify-between bg-white rounded-md z-[60] h-[70px] w-full absolute top-0 left-0 dark:bg-slate-700"}>
-            <input
-              className="w-full px-2 py-1 text-slate-700 outline-none border-b dark:bg-transparent dark:text-slate-100"
-              placeholder="Search..."
-            />
-            <div className={"text-skin-iconText p-2 border rounded-[50%] flex items-center justify-center hover:cursor-pointer"} onClick={(e) => handleSearchMobile((e))}>
-              <Close />
-            </div>
-          </div>) : null}
+      {isClickedMobileSearch ? (
+        <div
+          className={
+            "px-4 flex gap-4 items-center justify-between bg-white rounded-md z-[60] h-[70px] w-full absolute top-0 left-0 dark:bg-slate-700"
+          }
+        >
+          <input
+            className="w-full px-2 py-1 text-slate-700 outline-none border-b dark:bg-transparent dark:text-slate-100"
+            placeholder="Search..."
+          />
+          <div
+            className={
+              "text-skin-iconText p-2 border rounded-[50%] flex items-center justify-center hover:cursor-pointer"
+            }
+            onClick={(e) => handleSearchMobile(e)}
+          >
+            <Close />
+          </div>
+        </div>
+      ) : null}
       <div className="flex w-[30%] items-center gap-2">
         <div
           onClick={handleCloseSidebar}

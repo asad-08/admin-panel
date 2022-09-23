@@ -73,7 +73,9 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`sidebar w-64 fixed  h-screen shadow-lg dark:shadow-md dark:shadow-slate-400 z-50`}>
+    <div
+      className={` sidebar w-64 fixed  h-screen shadow-lg dark:shadow-md dark:shadow-slate-400 z-[99999]`}
+    >
       <div className="h-[70px] text-slate-100 bg-skin-btn flex items-center justify-between px-2 ">
         <h2 className="text-2xl font-bold">ReAdmin</h2>
         {activeMenu && screenSize <= 900 ? (

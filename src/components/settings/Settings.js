@@ -43,14 +43,14 @@ const Settings = () => {
   return (
     <>
       <div
-        className="settings fixed top-24 right-2 h-10 w-10 bg-skin-btn text-skin-btnText rounded-md flex items-center justify-center hover:cursor-pointer shadow-md"
+        className="settings fixed top-24 right-2 h-10 w-10 bg-skin-btn text-skin-btnText rounded-md flex items-center justify-center hover:cursor-pointer shadow-md z-[999]"
         onClick={(e) => handleDrawer(e)}
       >
         <SettingsIcon className="animate-spin delay-[2000] hover:animate-none" />
       </div>
       {isOpenDrawer ? (
         <div
-          className="fixed right-0 top-0 bottom-0 z-40 h-screen p-4 overflow-y-auto bg-white w-80 bg-skin-base shadow-lg dark:bg-slate-700 dark:text-slate-100"
+          className="fixed right-0 top-0 bottom-0  h-screen p-4 overflow-y-auto bg-white w-80 bg-skin-base shadow-lg dark:bg-slate-700 dark:text-slate-100 z-[9999]"
           tabIndex="-1"
         >
           <div className="border-b pb-6">

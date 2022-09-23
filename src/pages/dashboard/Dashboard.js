@@ -3,6 +3,10 @@ import { Button, Icon, Menu, MenuItem } from "@mui/material";
 import React from "react";
 import LineColumnAreaChart from "../../components/charts/LineColumnAreaChart";
 import { recentTransactions } from "../../dummyData/mock";
+import ProductFeedbackList from "./ProductFeedbackList";
+import RecentOrders from "./RecentOrders";
+
+import Timeline from "./Timeline";
 
 const Dashboard = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,7 +20,7 @@ const Dashboard = () => {
   return (
     <div
       className={
-        "min-h-screen bg-skin-base p-4 shadow-xl rounded-2xl dark:text-slate-100 dark:bg-slate-600"
+        "min-h-screen bg-skin-base p-4 shadow-xl rounded-2xl py-10 dark:text-slate-100 dark:bg-slate-600"
       }
     >
       <label className={"text-2xl font-semibold"}>
@@ -219,12 +223,12 @@ const Dashboard = () => {
       {/*</div>*/}
       <div
         className={
-          "mt-8 flex gap-4 items-center flex-col md:flex-row flex-wrap md:flex-nowrap"
+          "mt-8 flex gap-4 items-start flex-col md:flex-row flex-wrap md:flex-nowrap"
         }
       >
         <div
           className={
-            "h-[460px] line_column_area p-4 w-full md:w-1/2 rounded-2xl shadow-md flex flex-col items-start bg-slate-100 dark:bg-slate-500"
+            "h-[460px] line_column_area p-4 w-full md:w-1/2 rounded-2xl shadow-lg flex flex-col items-start bg-slate-100 dark:bg-slate-500"
           }
         >
           <div className="w-full flex items-center justify-between">
@@ -266,27 +270,73 @@ const Dashboard = () => {
 
         <div
           className={
-            "h-[460px] line_column_area p-4 w-full md:w-1/2 rounded-2xl shadow-md flex flex-col items-start bg-slate-100 dark:bg-slate-500"
+            " line_column_area p-4 w-full md:w-1/2 rounded-2xl shadow-lg flex flex-col items-start bg-slate-100 dark:bg-slate-500"
           }
         >
           <div className="w-full flex flex-col items-start justify-between">
             <label className="text-xl font-semibold">Recent Transaction</label>
-            <hr className="w-full h-[2px] bg-skin-btn my-4" />
-            <div className="w-full flex items-center justify-between">
-              <div className="flex items-center">
-                <Icon>list</Icon>
-                <div className="flex flex-col items-start">
-                  <label>Deposite PayPal</label>
-                  <label>Date</label>
-                </div>
-              </div>
-              <div className="flex flex-col items-start">
-                <label>amount</label>
-                <label>currency</label>
-              </div>
+            <hr className="w-full h-[2px] my-4" />
+            <div className="w-full">
+              {recentTransactions &&
+                recentTransactions.length > 0 &&
+                recentTransactions.map((item, index) => (
+                  <div
+                    key={index}
+                    className="w-full my-4 flex gap-3 items-center justify-between"
+                  >
+                    <div className="flex-[3] flex gap-4 items-center">
+                      <Icon sx={{ fontSize: "40px" }}>{item.icon}</Icon>
+                      <div className="flex gap-2 flex-col items-start">
+                        <label className="text-xl text-slate-500  dark:text-slate-100">
+                          {item.desc}
+                        </label>
+                        <label>{item.date}</label>
+                      </div>
+                    </div>
+                    <div className="flex-1 flex flex-col items-end justify-center">
+                      <label className="font-bold text-slate-600 dark:text-slate-200">
+                        {item.amount}
+                      </label>
+                      <label className="font-bold text-slate-400">$</label>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
+      </div>
+
+      <div
+        className={
+          "timeline mt-10 w-full flex gap-8 md:gap-4 items-start justify-between flex-col flex-wrap md:flex-nowrap md:flex-row"
+        }
+      >
+        <div
+          className={
+            "p-8 w-full md:w-1/2 rounded-2xl shadow-lg flex flex-col items-start bg-white dark:bg-slate-500"
+          }
+        >
+          <Timeline />
+        </div>
+
+        <div
+          className={
+            "p-8 w-full md:w-1/2 rounded-2xl shadow-lg flex flex-col items-start bg-white dark:bg-slate-500"
+          }
+        >
+          <RecentOrders />
+        </div>
+      </div>
+
+      <div
+        className={
+          "bg-white p-4 rounded-2xl my-10 w-full shadow-lg flex flex-col gap-8 md:gap-4 items-start justify-between dark:bg-slate-500"
+        }
+      >
+        <label className="font-semibold text-xl dark:text-slate-200">
+          Products Feedback
+        </label>
+        <ProductFeedbackList />
       </div>
     </div>
   );
