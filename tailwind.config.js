@@ -3,6 +3,19 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: "class",
   theme: {
+    screens: {
+      'sm': '640px',
+
+      'md': '768px',
+
+      'custom': '900px',
+
+      'lg': '1024px',
+
+      'xl': '1280px',
+
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         current: "var(--background-color)",
@@ -11,6 +24,7 @@ module.exports = {
         skin: {
           base: "var(--text-color)",
           btnText: "var(--text-color-button)",
+          iconText: "var(--fill-color-button)",
         },
       },
       backgroundColor: {

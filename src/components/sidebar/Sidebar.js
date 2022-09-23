@@ -66,20 +66,20 @@ const Sidebar = () => {
   ];
 
   const handleCloseSidebar = (link) => {
-    // if (activeMenu && screenSize <= 767) {
+    // if (activeMenu && screenSize <= 900) {
     dispatch(setActiveMenu(!activeMenu));
     setActiveLink(link);
     // }
   };
 
   return (
-    <div className={`sidebar w-64 fixed  h-screen shadow-lg z-50`}>
+    <div className={`sidebar w-64 fixed  h-screen shadow-lg dark:shadow-md dark:shadow-slate-400 z-50`}>
       <div className="h-[70px] text-slate-100 bg-skin-btn flex items-center justify-between px-2 ">
         <h2 className="text-2xl font-bold">ReAdmin</h2>
-        {activeMenu && screenSize <= 767 ? (
+        {activeMenu && screenSize <= 900 ? (
           <div
             onClick={() => handleCloseSidebar()}
-            className="bg-white px-2 py-1 text-slate-700 rounded-[50%] hover:cursor-pointer hover:bg-slate-100"
+            className="bg-white px-2 py-1 text-skin-iconText rounded-[50%] hover:cursor-pointer hover:bg-slate-100"
           >
             <ArrowBack sx={{ height: "16px", width: "16px" }} />
           </div>

@@ -6,3 +6,6 @@
 body {
   font-family: 'Poppins', sans-serif;
 }
+.apexcharts-toolbar {
+  display: none !important;
+}

@@ -14,7 +14,7 @@ import Settings from "./components/settings/Settings";
 import Sidebar from "./components/sidebar/Sidebar";
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Ecommerce from "./pages/ecommerce/Ecommerce";
+import Dashboard from "./pages/dashboard/Dashboard";
 import Products from "./pages/products/Products";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   useEffect(() => {
-    if (screenSize <= 767) {
+    if (screenSize <= 900) {
       dispatch(setActiveMenu(0));
     } else {
       dispatch(setActiveMenu(1));
@@ -57,15 +57,15 @@ function App() {
       <Settings />
       {activeMenu ? <Sidebar /> : null}
       <div
-        className={`min-h-screen w-full ${activeMenu ? "md:pl-64" : "flex-2"}`}
+        className={`min-h-screen w-full ${activeMenu ? "custom:pl-64" : "flex-2"}`}
       >
         <div className="fixed md:static navbar w-full">
           <Navbar />
         </div>
-        <div className="wrapper pt-[80px] p-4">
+        <div className="wrapper pt-[90px] p-4 dark:bg-slate-700 min-h-screen dark:text-slate-100">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Ecommerce />} exact />
+              <Route path="/" element={<Dashboard />} exact />
               <Route path="/products" element={<Products />} />
             </Routes>
           </BrowserRouter>

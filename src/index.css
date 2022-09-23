@@ -41,7 +41,7 @@
   }
   .theme-yellow {
     --text-color: rgb(30 41 59);
-    --text-color-button: rgb(255, 255, 255);
+    --text-color-button: rgb(30 41 59);
     --background-color: rgb(248 250 252);
     --fill-color-button:rgb(234 179 8);
     --fill-color-hover: rgb(161 98 7);
