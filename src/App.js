@@ -77,8 +77,6 @@ function App() {
           <Footer />
         </div>
       </div>
-
-      {/* <Home /> */}
     </div>
   );
 }
