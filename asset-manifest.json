@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/admin-panel/static/css/main.dc2fc349.css",
+    "main.js": "/admin-panel/static/js/main.1f822d5f.js",
+    "static/media/4.jpg": "/admin-panel/static/media/4.8b94f4932bf75b451415.jpg",
+    "static/media/3.jpg": "/admin-panel/static/media/3.f75128720101f19698b7.jpg",
+    "static/media/5.jpg": "/admin-panel/static/media/5.4bb4fb46dcb501904f0c.jpg",
+    "static/media/1.jpg": "/admin-panel/static/media/1.d810bd0560c178e71925.jpg",
+    "static/media/p4.jpg": "/admin-panel/static/media/p4.524a62509b31a16bd163.jpg",
+    "static/media/2.jpg": "/admin-panel/static/media/2.465834eaec76d52baa92.jpg",
+    "static/media/p5.jpg": "/admin-panel/static/media/p5.35988aacb0a1b0ff4008.jpg",
+    "static/media/p3.jpg": "/admin-panel/static/media/p3.2630eb766c01c711680e.jpg",
+    "static/media/p1.jpg": "/admin-panel/static/media/p1.3407a053069cf1bbac63.jpg",
+    "static/media/p2.jpg": "/admin-panel/static/media/p2.3dc6c843bddd4a585f53.jpg",
+    "index.html": "/admin-panel/index.html",
+    "main.dc2fc349.css.map": "/admin-panel/static/css/main.dc2fc349.css.map",
+    "main.1f822d5f.js.map": "/admin-panel/static/js/main.1f822d5f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc2fc349.css",
+    "static/js/main.1f822d5f.js"
+  ]
+}
