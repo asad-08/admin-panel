@@ -68,7 +68,7 @@ function App() {
         <div className="wrapper pt-[90px] p-4 dark:bg-slate-700 min-h-screen dark:text-slate-100">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Dashboard />} exact />
+              <Route path="/admin-panel" element={<Dashboard />} exact />
               <Route path="/products" element={<Products />} />
             </Routes>
           </BrowserRouter>
