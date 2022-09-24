@@ -17,6 +17,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Products from "./pages/products/Products";
 import Footer from "./components/footer/Footer";
+import LineChart from "./components/charts/LineChart";
+import AreaChart from "./components/charts/AreaChart";
+import BubbleChart from "./components/charts/BubbleChart";
+import PieChart from "./components/charts/PieChart";
+import BarStackedChart from "./components/charts/BarStackedChart";
+import Editor from "./components/editor/Editor";
+import Calendar from "./components/calendar/Calendar";
+import OrderList from "./pages/orders/Orders";
 
 function App() {
   const theme = useSelector(getTheme);
@@ -42,42 +50,50 @@ function App() {
   }, [screenSize]);
 
   return (
-    <div
-      className={
-        theme === "purple"
-          ? "theme-purple " + mode
-          : theme === "pink"
-          ? "theme-pink " + mode
-          : theme === "yellow"
-          ? "theme-yellow " + mode
-          : theme === "green"
-          ? "theme-green " + mode
-          : ""
-      }
-    >
-      <Settings />
-      {activeMenu ? <Sidebar /> : null}
+    <BrowserRouter>
       <div
-        className={`min-h-screen w-full ${
-          activeMenu ? "custom:pl-64" : "flex-2"
-        }`}
+        className={
+          theme === "purple"
+            ? "theme-purple " + mode
+            : theme === "pink"
+            ? "theme-pink " + mode
+            : theme === "yellow"
+            ? "theme-yellow " + mode
+            : theme === "green"
+            ? "theme-green " + mode
+            : ""
+        }
       >
-        <div className="navbar w-full">
-          <Navbar />
-        </div>
-        <div className="wrapper pt-[90px] p-4 dark:bg-slate-700 min-h-screen dark:text-slate-100">
-          <BrowserRouter>
+        <Settings />
+        {activeMenu ? <Sidebar /> : null}
+        <div className={` w-full ${activeMenu ? "custom:pl-64" : "flex-2"}`}>
+          <div className="navbar w-full">
+            <Navbar />
+          </div>
+          <div className="wrapper pt-[90px] p-4 dark:bg-slate-700 min-h-screen dark:text-slate-100">
             <Routes>
+              {/* Dashboard */}
               <Route path="/admin-panel" element={<Dashboard />} exact />
+              {/* pages */}
               <Route path="/products" element={<Products />} />
+              <Route path="/orders" element={<OrderList />} />
+              {/* Apps */}
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/editor" element={<Editor />} />
+              {/* Charts */}
+              <Route path="/line-chart" element={<LineChart />} />
+              <Route path="/area-chart" element={<AreaChart />} />
+              <Route path="/bubble-chart" element={<BubbleChart />} />
+              <Route path="/pie-chart" element={<PieChart />} />
+              <Route path="/stacked-chart" element={<BarStackedChart />} />
             </Routes>
-          </BrowserRouter>
-        </div>
-        <div>
-          <Footer />
+          </div>
+          <div>
+            <Footer />
+          </div>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

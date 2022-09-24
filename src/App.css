@@ -9,3 +9,10 @@ body {
 .apexcharts-toolbar {
   display: none !important;
 }
+.charts>div{
+  width: 100% !important;
+  height: 100% !important;
+}
+.apexcharts-canvas {
+  color: black !important;
+}

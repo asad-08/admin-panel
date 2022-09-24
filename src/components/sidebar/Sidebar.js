@@ -17,6 +17,7 @@ import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
 import LegendToggleIcon from "@mui/icons-material/LegendToggle";
 import MultilineChartIcon from "@mui/icons-material/MultilineChart";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   getActiveMenu,
   getScreenSize,
@@ -33,14 +34,16 @@ const Sidebar = () => {
   const menuList = [
     {
       label: "Dashboard",
-      links: [{ path: "", name: "ecommerce", icon: "add_shopping_cart" }],
+      links: [
+        { path: "admin-panel", name: "ecommerce", icon: "add_shopping_cart" },
+      ],
     },
     {
       label: "Pages",
       links: [
         { path: "", name: "products", icon: "list" },
         { path: "", name: "add-product", icon: "add" },
-        { path: "", name: "orders", icon: "list" },
+        { path: "orders", name: "orders", icon: "list" },
         { path: "", name: "add-order", icon: "add" },
         { path: "", name: "customers", icon: "group_add" },
         { path: "", name: "employees", icon: "groups" },
@@ -49,27 +52,31 @@ const Sidebar = () => {
     {
       label: "Apps",
       links: [
-        { path: "", name: "calendar", icon: "calendar_month" },
-        { path: "", name: "editor", icon: "edit" },
+        { path: "calendar", name: "calendar", icon: "calendar_month" },
+        { path: "editor", name: "editor", icon: "edit" },
       ],
     },
     {
       label: "Chars",
       links: [
-        { path: "", name: "line", icon: "show_chart_rounded" },
-        { path: "", name: "area", icon: "analytics_rounded" },
-        { path: "", name: "bar", icon: "bar_chart_rounded" },
-        { path: "", name: "pie", icon: "pie_chart_outlined" },
-        { path: "", name: "stacked", icon: "stacked_bar_chart_rounded" },
+        { path: "line-chart", name: "line", icon: "show_chart_rounded" },
+        { path: "area-chart", name: "area", icon: "analytics_rounded" },
+        { path: "bubble-chart", name: "bubble", icon: "bubble_chart" },
+        { path: "pie-chart", name: "pie", icon: "pie_chart_outlined" },
+        {
+          path: "stacked-chart",
+          name: "stacked",
+          icon: "stacked_bar_chart_rounded",
+        },
       ],
     },
   ];
 
   const handleCloseSidebar = (link) => {
-    // if (activeMenu && screenSize <= 900) {
-    dispatch(setActiveMenu(!activeMenu));
-    setActiveLink(link);
-    // }
+    if (activeMenu && screenSize <= 900) {
+      dispatch(setActiveMenu(!activeMenu));
+      setActiveLink(link);
+    }
   };
 
   return (
@@ -91,18 +98,23 @@ const Sidebar = () => {
         <ul className="p-2 flex flex-col gap-1 pb-24">
           {menuList.map((item, index) => (
             <>
-              <label key={index} className="text-slate-500 dark:text-slate-400">
+              <label
+                key={index}
+                className="text-slate-500 dark:text-slate-400 uppercase"
+              >
                 {item.label}
               </label>
               {item.links.map((sitem, sindex) => (
-                <li
-                  key={sindex}
-                  onClick={() => handleCloseSidebar()}
-                  className={`flex items-center gap-3 p-3 text-sm rounded-lg hover:cursor-pointer hover:bg-skin-btn hover:text-skin-btnText`}
-                >
-                  <Icon>{sitem.icon}</Icon>{" "}
-                  <span className="">{sitem.name}</span>
-                </li>
+                <Link to={sitem.path}>
+                  <li
+                    key={sindex}
+                    onClick={() => handleCloseSidebar()}
+                    className={`flex items-center gap-3 p-3 text-sm rounded-lg hover:cursor-pointer hover:bg-skin-btn hover:text-skin-btnText`}
+                  >
+                    <Icon>{sitem.icon}</Icon>{" "}
+                    <span className="capitalize">{sitem.name}</span>
+                  </li>
+                </Link>
               ))}
             </>
           ))}
